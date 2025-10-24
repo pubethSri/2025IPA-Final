@@ -1,7 +1,7 @@
 #######################################################################################
 # Yourname: Pubeth Sriwattana
 # Your student ID: 66070158
-# Your GitHub Repo: https://github.com/pubethSri/IPA2024-Final
+# Your GitHub Repo: https://github.com/pubethSri/2025IPA-Final
 
 #######################################################################################
 # 1. Import libraries for API requests, JSON formatting, time, os, (restconf_final or netconf_final), netmiko_final, and ansible_final.
@@ -26,7 +26,6 @@ ACCESS_TOKEN = os.environ.get("WEBEX_ACCESS_TOKEN")
 # Defines a variable that will hold the roomId
 roomIdToGetMessages = (
     "Y2lzY29zcGFyazovL3VybjpURUFNOnVzLXdlc3QtMl9yL1JPT00vYmQwODczMTAtNmMyNi0xMWYwLWE1MWMtNzkzZDM2ZjZjM2Zm" # IPA2025
-    # "Y2lzY29zcGFyazovL3VybjpURUFNOnVzLXdlc3QtMl9yL1JPT00vYzljOTE4ZjAtMDNkZC0xMWVmLTljZWUtZmZlZGMxOWJmNjYy" # Private
 )
 
 while True:
