@@ -1,20 +1,22 @@
 import subprocess
 
-def showrun():
-    playbook_file = 'fixed_playbook.yaml' 
-    # The filename your playbook creates
-    expected_filename = "show_run_66070158_R1.txt"
+def showrun(ip_address):
+    playbook_showrun_file = 'showrun_playbook.yaml' 
+    expected_filename = f"show_run_66070158_{ip_address}.txt"
 
     # run playbook
-    command = ['ansible-playbook', playbook_file]
+    command = [
+        'ansible-playbook',
+        playbook_showrun_file,
+        '-e', f"target_host={ip_address}",
+        '-e', f"output_filename={expected_filename}"
+    ]
     
     print(f"Running Ansible: {' '.join(command)}")
     
     try:
-        # the result will get the text output
-        result = subprocess.run(command, capture_output=True, text=True, check=True) # check=True will raise an error if ansible fails
+        result = subprocess.run(command, capture_output=True, text=True, check=True)
         
-        # A simple check: Ansible usually prints "PLAY RECAP" and "failed=0" on success
         playbook_summary = result.stdout
         print("Ansible Output:\n", playbook_summary) # for debug
 

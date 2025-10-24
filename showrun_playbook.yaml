@@ -1,0 +1,36 @@
+---
+- name: DYNAMIC BACKUP OF RUNNING-CONFIG
+  hosts: localhost
+  gather_facts: false
+  connection: local
+
+  vars:
+    target_host: "127.0.0.1" 
+    output_filename: "default_show_run.txt"
+    ansible_user: "admin"
+    ansible_password: "cisco"
+    ansible_network_os: "cisco.ios.ios"
+    ansible_connection: "network_cli"
+
+  tasks:
+   - name: Add dynamic host to inventory
+     add_host:
+       name: "{{ target_host }}" # Uses the IP from the -e flag
+       ansible_user: "{{ ansible_user }}"
+       ansible_password: "{{ ansible_password }}"
+       ansible_network_os: "{{ ansible_network_os }}"
+       ansible_connection: "{{ ansible_connection }}"
+     changed_when: false
+
+   - name: DISPLAYING THE RUNNING-CONFIG
+     cisco.ios.ios_command:
+       commands:
+         - show running-config  
+     register: config
+     delegate_to: "{{ target_host }}"
+
+   - name: SAVE OUTPUT TO HERE
+     copy:
+       content: "{{ config.stdout[0] }}"
+       dest: "./{{ output_filename }}"
+     delegate_to: localhost
