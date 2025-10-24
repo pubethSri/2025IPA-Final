@@ -1,0 +1,17 @@
+---
+- name: AUTOMATIC BACKUP OF RUNNING-CONFIG
+  hosts: routers
+  gather_facts: false
+  connection: network_cli
+ 
+  tasks:
+   - name: DISPLAYING THE RUNNING-CONFIG
+     ios_command:
+       commands:
+         - show running-config  
+     register: config
+ 
+   - name: SAVE OUTPUT TO HERE
+     copy:
+       content: "{{ config.stdout[0] }}"
+       dest: "./show_run_66070158_R1.txt"

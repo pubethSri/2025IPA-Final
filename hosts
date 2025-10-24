@@ -1,0 +1,2 @@
+[routers]
+R1 ansible_user=admin ansible_password=cisco ansible_host=10.0.15.61 ansible_network_os=cisco.ios.ios
