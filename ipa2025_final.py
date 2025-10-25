@@ -129,29 +129,29 @@ while True:
 
                 if command == "create":
                     if current_method == "restconf":
-                        responseMessage = "response: ยังไม่ได้ทำ เทสก่อนจ้า" #restconf_final.create(ip_address)
+                        responseMessage = restconf_final.create(ip_address)
                     else:
-                        responseMessage = "response: ยังไม่ได้ทำ เทสก่อนจ้า" #netconf_final.create(ip_address)
+                        responseMessage = netconf_final.create(ip_address)
                 elif command == "delete":
                     if current_method == "restconf":
-                        responseMessage = "response: ยังไม่ได้ทำ เทสก่อนจ้า" #restconf_final.delete(ip_address)
+                        responseMessage = restconf_final.delete(ip_address)
                     else:
-                        responseMessage = "response: ยังไม่ได้ทำ เทสก่อนจ้า" #netconf_final.delete(ip_address)
+                        responseMessage = netconf_final.delete(ip_address)
                 elif command == "enable":
                     if current_method == "restconf":
-                        responseMessage = "response: ยังไม่ได้ทำ เทสก่อนจ้า" #restconf_final.enable(ip_address)
+                        responseMessage = restconf_final.enable(ip_address)
                     else:
-                        responseMessage = "response: ยังไม่ได้ทำ เทสก่อนจ้า" #netconf_final.enable(ip_address)
+                        responseMessage = netconf_final.enable(ip_address)
                 elif command == "disable":
                     if current_method == "restconf":
-                        responseMessage = "response: ยังไม่ได้ทำ เทสก่อนจ้า" #restconf_final.disable(ip_address)
+                        responseMessage = restconf_final.disable(ip_address)
                     else:
-                        responseMessage = "response: ยังไม่ได้ทำ เทสก่อนจ้า" #netconf_final.create(ip_address)
+                        responseMessage = netconf_final.create(ip_address)
                 elif command == "status":
                     if current_method == "restconf":
-                        responseMessage = "response: ยังไม่ได้ทำ เทสก่อนจ้า" #restconf_final.status(ip_address)
+                        responseMessage = restconf_final.status(ip_address)
                     else:
-                        responseMessage = "response: ยังไม่ได้ทำ เทสก่อนจ้า" #netconf_final.create(ip_address)
+                        responseMessage = netconf_final.create(ip_address)
 
                 # netmiko / ansible
                 elif command == "gigabit_status":

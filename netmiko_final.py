@@ -9,11 +9,11 @@ def gigabit_status(device_ip):
     interfaces_status = []
 
     device_params = {
-    "device_type": "cisco_ios",
-    "ip": device_ip,
-    "username": username,
-    "password": password,
-}
+        "device_type": "cisco_ios",
+        "ip": device_ip,
+        "username": username,
+        "password": password,
+    }
 
     with ConnectHandler(**device_params) as ssh:
         up = 0
