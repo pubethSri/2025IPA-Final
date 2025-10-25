@@ -12,7 +12,7 @@ import requests
 
 # .py files
 import restconf_final
-# import netconf_final
+import netconf_final
 import netmiko_final
 import ansible_final
 from requests_toolbelt.multipart.encoder import MultipartEncoder
@@ -146,12 +146,12 @@ while True:
                     if current_method == "restconf":
                         responseMessage = restconf_final.disable(ip_address)
                     else:
-                        responseMessage = netconf_final.create(ip_address)
+                        responseMessage = netconf_final.disable(ip_address)
                 elif command == "status":
                     if current_method == "restconf":
                         responseMessage = restconf_final.status(ip_address)
                     else:
-                        responseMessage = netconf_final.create(ip_address)
+                        responseMessage = netconf_final.status(ip_address)
 
                 # netmiko / ansible
                 elif command == "gigabit_status":
